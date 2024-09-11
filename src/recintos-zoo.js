@@ -1,5 +1,6 @@
 import {AnimalService} from "./services/animal-service.js";
 import {RecintoRepository} from "./repositories/recinto-repository.js";
+import {Recinto} from "./domain/entities/recinto.js";
 
 class RecintosZoo {
     constructor() {
@@ -23,12 +24,13 @@ class RecintosZoo {
 
         recintos.forEach(recinto => {
             if (recinto.isViavelParaAnimal(animal, quantidade)) {
-                // Adiciona os animais ao recinto para calcular o espaço disponível corretamente
-                recinto.adicionarAnimais(animal, quantidade);
-                const espacoLivre = recinto.espacoDisponivel();
+                // Cria uma cópia do recinto para evitar alterar o estado original
+                const copiaRecinto = new Recinto(recinto.numero, recinto.tamanho, recinto.bioma, [...recinto.animais]);
+                copiaRecinto.adicionarAnimais(animal, quantidade);
+                const espacoLivre = copiaRecinto.espacoDisponivel();
                 recintosViaveis.push({
-                    numero: recinto.numero,
-                    descricao: `Recinto ${recinto.numero} (espaço livre: ${espacoLivre} total: ${recinto.tamanho})`
+                    numero: copiaRecinto.numero,
+                    descricao: `Recinto ${copiaRecinto.numero} (espaço livre: ${espacoLivre} total: ${copiaRecinto.tamanho})`
                 });
             }
         });
@@ -45,3 +47,8 @@ class RecintosZoo {
 }
 
 export {RecintosZoo};
+
+
+
+
+

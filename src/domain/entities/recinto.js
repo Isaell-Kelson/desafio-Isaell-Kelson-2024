@@ -49,18 +49,17 @@ class Recinto {
         const especiesDiferentes = new Set(copiaAnimais.map(a => a.animal.nome));
         const temOutrasEspecies = especiesDiferentes.size > 1;
 
+        // Ajuste para carnívoros
         if (animal.isCarnivoro() && (temOutrasEspecies || (this.animais.length > 0 && this.animais[0].animal.nome !== animal.nome))) {
             return false;
         }
 
-        if (animal.nome === 'HIPOPOTAMO' && temOutrasEspecies && this.bioma !== 'savana e rio') {
-            return false;
-        }
-
+        // Ajuste para macacos
         if (animal.nome === 'MACACO' && (this.animais.length === 0 || quantidade < 2)) {
             return false;
         }
 
+        // Calcular o espaço ocupado com a adição dos novos animais
         let espacoOcupado = this.espacoOcupado();
         espacoOcupado += animal.tamanho * quantidade;
 
@@ -73,3 +72,4 @@ class Recinto {
 }
 
 export {Recinto};
+
