@@ -1,4 +1,4 @@
-import {Animal} from "../domain/entities/Animal.js";
+import {Animal} from "../domain/entities/animal.js";
 
 
 export class AnimalService {

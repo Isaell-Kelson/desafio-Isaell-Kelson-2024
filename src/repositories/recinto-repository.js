@@ -1,5 +1,5 @@
 import {AnimalService} from "../services/animal-service.js";
-import {Recinto} from "../domain/entities/Recinto.js";
+import {Recinto} from "../domain/entities/recinto.js";
 
 export class RecintoRepository {
     constructor() {
