@@ -3,6 +3,7 @@ import {Animal} from "../domain/entities/animal.js";
 
 export class AnimalService {
     constructor() {
+        // Inicializa a lista de animais com suas características, respeitando a tabela Animais
         this.animais = [
             new Animal('LEAO', 3, ['savana'], true),
             new Animal('LEOPARDO', 2, ['savana'], true),

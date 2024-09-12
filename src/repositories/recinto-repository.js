@@ -3,8 +3,10 @@ import {Recinto} from "../domain/entities/recinto.js";
 
 export class RecintoRepository {
     constructor() {
+        // Inicializa o serviço de animais para obter informações sobre os animais
         const animalService = new AnimalService();
 
+        // Define a lista de recintos com suas características e animais presentes, respeitando a tabela Recintos Existentes
         this.recintos = [
             new Recinto(1, 10, 'savana', [
                 {animal: animalService.getAnimal('MACACO'), quantidade: 3}
@@ -20,6 +22,7 @@ export class RecintoRepository {
         ];
     }
 
+    // Método para listar todos os recintos
     listarRecintos() {
         return this.recintos;
     }
