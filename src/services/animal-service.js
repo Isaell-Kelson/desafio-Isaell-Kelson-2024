@@ -1,7 +1,7 @@
 import {Animal} from "../domain/entities/animal.js";
 
 
-export class AnimalService {
+class AnimalService {
     constructor() {
         // Inicializa a lista de animais com suas características, respeitando a tabela Animais
         this.animais = [
@@ -18,3 +18,5 @@ export class AnimalService {
         return this.animais.find(animal => animal.nome === nome);
     }
 }
+
+export {AnimalService};

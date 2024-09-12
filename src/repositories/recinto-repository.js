@@ -1,7 +1,7 @@
 import {AnimalService} from "../services/animal-service.js";
 import {Recinto} from "../domain/entities/recinto.js";
 
-export class RecintoRepository {
+class RecintoRepository {
     constructor() {
         // Inicializa o serviço de animais para obter informações sobre os animais
         const animalService = new AnimalService();
@@ -27,3 +27,5 @@ export class RecintoRepository {
         return this.recintos;
     }
 }
+
+export {RecintoRepository};
